@@ -1,3 +1,7 @@
+[![Build Status](https://img.shields.io/appveyor/ci/BrokenEvent/visualstudioopener/master.svg?style=flat-square)](https://ci.appveyor.com/project/BrokenEvent/visualstudioopener)
+[![GitHub License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://raw.githubusercontent.com/BrokenEvent/VisualStudioOpener/master/LICENSE)
+[![Github Releases](https://img.shields.io/github/downloads/BrokenEvent/VisualStudioOpener/total.svg?style=flat-square)](https://github.com/BrokenEvent/VisualStudioOpener/releases)
+
 # VisualStudioOpener
 The library is used to provide "Open in Visual Studio" functionality. Old style DTE COM engine is used.
 
