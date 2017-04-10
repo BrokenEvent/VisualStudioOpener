@@ -28,8 +28,7 @@ namespace BrokenEvent.VisualStudioOpener
 
     private static IEnumerable<IVisualStudioInfo> DetectOldVisualStudios()
     {
-      RegistryKey registryHive = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
-
+      using (RegistryKey registryHive = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32))
       using (RegistryKey key = registryHive.OpenSubKey(@"SOFTWARE\Microsoft\VisualStudio", false))
       {
         foreach (string subKeyName in key.GetSubKeyNames())
@@ -40,6 +39,8 @@ namespace BrokenEvent.VisualStudioOpener
 
           using (RegistryKey subKey = key.OpenSubKey(subKeyName, false))
           {
+            if (subKey == null)
+              continue;
             string path = CheckOldVisualStudio(subKey);
             if (path == null || !File.Exists(path))
               continue;
