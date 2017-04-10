@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 
 using Microsoft.VisualStudio.Setup.Configuration;
 using Microsoft.Win32;
@@ -51,7 +52,19 @@ namespace BrokenEvent.VisualStudioOpener
 
     private static IEnumerable<IVisualStudioInfo> DetectNewVisualStudios()
     {
-      SetupConfiguration configuration = new SetupConfiguration();
+      SetupConfiguration configuration;
+      try
+      {
+        configuration = new SetupConfiguration();
+      }
+      catch (COMException ex)
+      {
+        // class not registered, no VS2017+ installations
+        if ((uint)ex.HResult == 0x80040154)
+          yield break;
+
+        throw;
+      }
       IEnumSetupInstances e = configuration.EnumAllInstances();
 
       int fetched;
