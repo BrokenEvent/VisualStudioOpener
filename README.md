@@ -17,21 +17,18 @@ The library is used to provide "Open in Visual Studio" functionality. Old style 
 
 ## Usage
 
-The entry point is **BrokenEvent.VisualStudioOpener.VisualStudioDetector** static class. You can use it to detect all existing Visual Studio installations:
+The entry point is `BrokenEvent.VisualStudioOpener.VisualStudioDetector` static class. You can use it to detect all existing Visual Studio installations:
 
       foreach (IVisualStudioInfo info in VisualStudioDetector.GetVisualStudios())
       {
         // code
       }
 
-You can also get the latest VS or VS by its name (called *Description*). Each **IVisualStudioInfo** have
+You can also get the latest VS or VS by its name (called `Description`). Each `IVisualStudioInfo` have
 
     void OpenFile(string filename, int lineNumber = -1);
 
 method to open files.
 
-## Future Plans
-Unity changelog tells, that they abandoned DTE and used something another to open files in VS. DTE is slow and unstable COM thing and if someone has a clue how to do it in another way, you are welcome.
-
 ## Credits
-(C) 2017, Broken Event. [brokenevent.com](http://brokenevent.com)
+© 2017-2018 Broken Event. [brokenevent.com](http://brokenevent.com)
