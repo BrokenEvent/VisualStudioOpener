@@ -93,6 +93,10 @@ namespace BrokenEvent.VisualStudioOpener
     {
       yield return new NotepadInfo();
 
+      IVisualStudioInfo vsCodeInfo = VsCodeInfo.Probe();
+      if (vsCodeInfo != null)
+        yield return vsCodeInfo;
+
       foreach (IVisualStudioInfo info in DetectOldVisualStudios())
         yield return info;
 

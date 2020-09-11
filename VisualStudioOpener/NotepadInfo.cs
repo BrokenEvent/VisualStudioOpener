@@ -23,7 +23,7 @@ namespace BrokenEvent.VisualStudioOpener
 
     public Version Version
     {
-      get { return Version.Parse("0.0"); }
+      get { return new Version(0,0); }
     }
 
     public override string ToString()

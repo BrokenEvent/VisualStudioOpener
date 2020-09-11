@@ -53,6 +53,7 @@
     <Compile Include="VisualStudio2017Info.cs" />
     <Compile Include="VisualStudioDetector.cs" />
     <Compile Include="VisualStudioInfo.cs" />
+    <Compile Include="VsCodeInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
